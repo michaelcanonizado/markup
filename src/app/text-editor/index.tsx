@@ -5,7 +5,7 @@ const TextEditor = ({ className }: { className?: string }) => {
 	return (
 		<div className={cn(className, 'text-xl flex flex-col')}>
 			<ActionBar />
-			<div className="grow bg-muted grid place-items-center">Text Editor</div>
+			<div className="grow grid place-items-center">Text Editor</div>
 		</div>
 	);
 };
