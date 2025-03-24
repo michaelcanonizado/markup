@@ -6,13 +6,12 @@ import {
 
 import TextEditor from './text-editor';
 import Console from './console';
+import Header from './header';
 
 export default function Home() {
 	return (
 		<main className=" h-screen px-8 pb-8 flex flex-col">
-			<div className="py-8">
-				<h1 className="text-4xl font-bold">Markup</h1>
-			</div>
+			<Header />
 			<ResizablePanelGroup
 				direction="horizontal"
 				className="growrounded-lg border"
