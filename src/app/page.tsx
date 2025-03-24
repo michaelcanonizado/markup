@@ -1,3 +1,11 @@
+import TextEditor from './text-editor';
+import Console from './console';
+
 export default function Home() {
-	return <h1 className="text-2xl">Markup</h1>;
+	return (
+		<main className="bg-purple-500 min-h-screen grid grid-cols-2">
+			<TextEditor />
+			<Console />
+		</main>
+	);
 }
