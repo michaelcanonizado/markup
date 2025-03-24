@@ -17,12 +17,12 @@ export default function Home() {
 				className="growrounded-lg border"
 			>
 				<ResizablePanel defaultSize={50}>
-					<TextEditor className="text-xl w-full h-full  grid place-items-center" />
+					<TextEditor className="w-full h-full" />
 				</ResizablePanel>
 				<ResizableHandle withHandle />
 				<ResizableHandle />
 				<ResizablePanel defaultSize={50}>
-					<Console className="text-xl w-full h-full  grid place-items-center" />
+					<Console className="w-full h-full" />
 				</ResizablePanel>
 			</ResizablePanelGroup>
 		</main>
