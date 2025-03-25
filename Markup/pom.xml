@@ -5,6 +5,18 @@
     <artifactId>Markup</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>com.michaelcanonizado</groupId>
+            <artifactId>TimingFramework</artifactId>
+            <version>0.55</version>
+        </dependency>
+        <dependency>
+            <groupId>com.michaelcanonizado</groupId>
+            <artifactId>gradient-icon-font</artifactId>
+            <version>1</version>
+        </dependency>
+    </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>22</maven.compiler.source>
