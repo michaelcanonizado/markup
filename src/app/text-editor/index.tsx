@@ -6,6 +6,11 @@ import Editor from '@monaco-editor/react';
 import { editor } from 'monaco-editor';
 import { useRef } from 'react';
 
+const defaultCode = `
+\\hHello World!;
+\\pThis is a paragraph;
+`.trim();
+
 const TextEditor = ({ className }: { className?: string }) => {
 	const textEditorRef = useRef<null | editor.IStandaloneCodeEditor>(null);
 
@@ -22,9 +27,11 @@ const TextEditor = ({ className }: { className?: string }) => {
 			<ActionBar />
 			<div className="grow grid place-items-center">
 				<Editor
+					className="text-2xl"
 					height="100%"
-					defaultLanguage=""
-					defaultValue="// some comment"
+					width="100%"
+					theme="vs-dark"
+					defaultValue={defaultCode}
 					onMount={(editor) => {
 						textEditorRef.current = editor;
 					}}
