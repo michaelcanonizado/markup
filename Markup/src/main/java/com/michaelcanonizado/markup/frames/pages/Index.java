@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.michaelcanonizado.frames.pages;
+package com.michaelcanonizado.markup.frames.pages;
 
 /**
  *
@@ -39,7 +39,6 @@ public class Index extends javax.swing.JFrame {
         setBackground(new java.awt.Color(9, 9, 11));
         setName("index"); // NOI18N
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1024, 650));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(9, 9, 11));

@@ -3,7 +3,7 @@
  */
 
 package com.michaelcanonizado.markup;
-import com.michaelcanonizado.frames.pages.Index;
+import com.michaelcanonizado.markup.frames.pages.Index;
 
 /**
  *
