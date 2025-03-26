@@ -15,8 +15,10 @@ public class Markup {
     public static void main(String[] args) {
         String input = "\\h\\lHello World!;";
         
-        System.out.println("\n\t  Input: " + input);
-        System.out.println("Is valid syntax: " + Parser.parse(input));
+        System.out.println("Input: " + input);
+        System.out.println("Input Length: " + input.length());
+        boolean isValidSyntax = Parser.parse(input);
+        System.out.println("Is valid syntax: " + isValidSyntax);
         
 //        java.awt.EventQueue.invokeLater(() -> {
 //            Index pages = new Index();
