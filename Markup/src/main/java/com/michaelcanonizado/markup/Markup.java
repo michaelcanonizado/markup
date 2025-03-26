@@ -13,7 +13,7 @@ import com.michaelcanonizado.markup.utils.Parser;
 public class Markup {
 
     public static void main(String[] args) {
-        String input = "\\r";
+        String input = "\\z";
 //        String input = "\\h\\lHello World!;";
         
         System.out.println("Input: " + input);
