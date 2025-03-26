@@ -4,6 +4,7 @@
 
 package com.michaelcanonizado.markup;
 import com.michaelcanonizado.markup.frames.pages.Index;
+import com.michaelcanonizado.markup.utils.Parser;
 
 /**
  *
@@ -12,11 +13,14 @@ import com.michaelcanonizado.markup.frames.pages.Index;
 public class Markup {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        String input = "\\h\\lHello World!;";
         
-        java.awt.EventQueue.invokeLater(() -> {
-            Index pages = new Index();
-            pages.setVisible(true);
-        });
+        System.out.println("\n\t  Input: " + input);
+        System.out.println("Is valid syntax: " + Parser.parse(input));
+        
+//        java.awt.EventQueue.invokeLater(() -> {
+//            Index pages = new Index();
+//            pages.setVisible(true);
+//        });
     }
 }

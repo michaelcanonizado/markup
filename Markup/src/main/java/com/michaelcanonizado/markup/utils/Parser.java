@@ -34,5 +34,8 @@ public class Parser {
         throw new UnsupportedOperationException("Cannot instantiate the utility Parser class!");
     }
     
+    public static boolean parse(String input) {
+        return false;
+    }
     
 }
