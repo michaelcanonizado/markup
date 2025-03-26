@@ -35,10 +35,24 @@ public class Parser {
     }
     
     public static boolean parse(String input) {
-        int lastIndex = parseString(input, 0);
+        int lastIndex = parseEscapeSequence(input, 0);
         System.out.println("\nLast position: " + lastIndex);
         if (lastIndex == input.length()) return true;
         return false;
+    }
+    
+    private static int parseEscapeSequence (String input, int index) {
+        if (input.charAt(index) == '\\') {
+            if (isValidEscapeCharacter(input.charAt(index + 1))) {
+                return index + 2;
+            }
+        }
+        return index + 1;
+    }
+    
+    private static boolean isValidEscapeCharacter (char character) {
+        String validEscapeCharacters = "htl";
+        return validEscapeCharacters.indexOf(character) != -1;
     }
     
     private static int parseString (String input, int index) {
