@@ -163,4 +163,12 @@ public class Parser {
         }
         return false;
     }
+    
+    private boolean match(char expectedCharacter) {
+        if (index < input.length() && input.charAt(index) == expectedCharacter) {
+            index++;
+            return true;
+        }
+        return false;
+    }
 }
