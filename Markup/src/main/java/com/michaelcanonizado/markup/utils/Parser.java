@@ -16,7 +16,7 @@ import java.util.List;
 public class Parser {
     private String input;
     private int index = 0;
-    private static final List<String> ESCAPE_CHARACTERS = createSortedEscapeCharactersList();
+    private static final List<String> VALID_ESCAPE_CHARACTERS = createSortedEscapeCharactersList();
 
     /*
             PRODUCTION RULES:
@@ -38,13 +38,13 @@ public class Parser {
 
     public Parser(String input) {
         this.input = input;
-        ESCAPE_CHARACTERS.sort(Comparator
+        VALID_ESCAPE_CHARACTERS.sort(Comparator
             .comparingInt(String::length).reversed()
             .thenComparing(Comparator.naturalOrder()));
     }
     
     /*
-    * Sorts ESCAPE_CHARACTERS by length in descending order,
+    * Sorts VALID_ESCAPE_CHARACTERS by length in descending order,
     * and alphabetically in ascending order.
     * 
     * This ensures that longer escape sequences are given priority.
@@ -95,7 +95,7 @@ public class Parser {
 
     private boolean parseEscapeCharacter() {
         // See if the current escape sequence matches any of the valid escape characters
-        for (String validEscapeCharacters : ESCAPE_CHARACTERS) {
+        for (String validEscapeCharacters : VALID_ESCAPE_CHARACTERS) {
             if (input.startsWith(validEscapeCharacters, index)) {
                 index += validEscapeCharacters.length();
                 return true;
