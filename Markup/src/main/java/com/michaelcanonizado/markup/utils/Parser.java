@@ -64,9 +64,18 @@ public class Parser {
     }
     
     public boolean parse() {
-        boolean isValidSyntax = parseEscapeSequences();
+        boolean isValidSyntax = parseStatement();
         System.out.println("\nLast position: " + index);
         return isValidSyntax && index == input.length();
+    }
+    
+    // <statement> ::= <escape_sequences><string>;
+    public boolean parseStatement() {
+        int startIndex = index;
+        if (parseEscapeSequences() && parseString()) {
+            return true;
+        }
+        return false;
     }
     
     private boolean parseEscapeSequences() {
