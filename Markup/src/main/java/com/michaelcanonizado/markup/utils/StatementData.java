@@ -23,4 +23,12 @@ public class StatementData {
     public String toString() {
         return "EscapeSequences: " + escapeSequences + ", Text: \"" + text + "\"";
     }
+
+    public List<String> getEscapeSequences() {
+        return escapeSequences;
+    }
+
+    public String getText() {
+        return text;
+    }
 }

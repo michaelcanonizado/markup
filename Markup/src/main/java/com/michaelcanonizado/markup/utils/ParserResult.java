@@ -4,6 +4,9 @@
  */
 package com.michaelcanonizado.markup.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author lilac
@@ -13,6 +16,7 @@ public class ParserResult {
     private int errorIndex;
     private String errorMessage;
     private String errorContext;
+    private List<StatementData> statements = new ArrayList<>();
 
     public ParserResult(boolean isValid, int errorIndex, String errorMessage, String errorContext) {
         this.isValid = isValid;
@@ -36,6 +40,10 @@ public class ParserResult {
     public String getErrorContext() {
         return errorContext;
     }
+    
+    public List<StatementData> getStatements() {
+        return statements;
+    }
 
     public void setIsValid(boolean isValid) {
         this.isValid = isValid;
@@ -51,6 +59,10 @@ public class ParserResult {
 
     public void setErrorContext(String errorContext) {
         this.errorContext = errorContext;
+    }
+    
+    public void setStatements(List<StatementData> statements) {
+        this.statements = statements;
     }
     
     @Override

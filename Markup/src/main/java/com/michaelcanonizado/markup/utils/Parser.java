@@ -33,6 +33,7 @@ public class Parser {
         '|', '}', '~', ' '
     );
     private ParserResult result = new ParserResult(false, -1, null, null);
+    private List<StatementData> statements = new ArrayList<>();
     
     /*
             PRODUCTION RULES:
@@ -80,60 +81,75 @@ public class Parser {
     }
     
     public ParserResult parse() {
-        boolean isValidSyntax = parseProgram();
+        List<StatementData> statementsData = parseProgram();
 //        return isValidSyntax && index == input.length();
-        if (index == input.length() && isValidSyntax) {
-            return new ParserResult(true, -1, null, null);
+        result.setStatements(statements);
+        if (index == input.length()) {
+            result.setIsValid(true);
+            return result;
         }
-        result.setErrorIndex(index-1);
+        result.setErrorIndex(index - 2);
         return result;
     }
     
-    private boolean parseProgram() {
+    private List<StatementData> parseProgram() {
         skipWhitespace();
-        if (parseStatement()) {
-            return parseProgram();
+        while (index < input.length()) {
+            StatementData statement = parseStatement();
+            if (statement == null) {
+                return statements;
+            }
+            statements.add(statement);
+            skipWhitespace();
         }
-        return index == input.length();
+        return statements;
     }
     
-    private boolean parseStatement() {
-        int startIndex = index;
-        if (parseEscapeSequences() && parseString() && match(';')) {
-            return true;
+    private StatementData parseStatement() {
+        List<String> escapeSequences = new ArrayList<>();
+        StringBuilder stringBuilder = new StringBuilder("Hello World!");
+        
+        if (parseEscapeSequences(escapeSequences) && parseString() && match(';')) {
+            return new StatementData(escapeSequences, stringBuilder.toString());
         }
-        return false;
+        return null;
     }
     
-    private boolean parseEscapeSequences() {
-        if (parseEscapeSequence()) {
-            return parseEscapeSequencesTail();
+    private boolean parseEscapeSequences(List<String> escapeSequences) {
+        StringBuilder sequence = new StringBuilder();
+        if (parseEscapeSequence(sequence)) {
+            escapeSequences.add(sequence.toString());
+            return parseEscapeSequencesTail(escapeSequences);
         }
         return false;
     }
 
-    private boolean parseEscapeSequencesTail() {
-        if (index < input.length() && input.charAt(index) == '\\') {
-            return parseEscapeSequence() && parseEscapeSequencesTail();
+    private boolean parseEscapeSequencesTail(List<String> escapeSequences) {
+        StringBuilder sequence = new StringBuilder();
+        if (parseEscapeSequence(sequence)) {
+            escapeSequences.add(sequence.toString());
+            return parseEscapeSequencesTail(escapeSequences);
         }
         // Epsilon case
         return true;
     }
 
-    private boolean parseEscapeSequence() {
+    private boolean parseEscapeSequence(StringBuilder sequence) {
         if (index < input.length() && input.charAt(index) == '\\') {
+            sequence.append('\\');
             // Consume the '\'
             index++;
-            return parseEscapeCharacter();
+            return parseEscapeCharacter(sequence);
         }
         return false;
     }
 
-    private boolean parseEscapeCharacter() {
+    private boolean parseEscapeCharacter(StringBuilder sequence) {
         // See if the current escape sequence matches any of the valid escape characters
-        for (String validEscapeCharacters : VALID_ESCAPE_CHARACTERS) {
-            if (input.startsWith(validEscapeCharacters, index)) {
-                index += validEscapeCharacters.length();
+        for (String validEscapeCharacter : VALID_ESCAPE_CHARACTERS) {
+            if (input.startsWith(validEscapeCharacter, index)) {
+                sequence.append(validEscapeCharacter);
+                index += validEscapeCharacter.length();
                 return true;
             }
         }
