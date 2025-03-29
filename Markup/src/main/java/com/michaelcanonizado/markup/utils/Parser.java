@@ -80,7 +80,7 @@ public class Parser {
     }
     
     public ParserResult parse() {
-        boolean isValidSyntax = parseStatement();
+        boolean isValidSyntax = parseProgram();
 //        return isValidSyntax && index == input.length();
         if (index == input.length() && isValidSyntax) {
             return new ParserResult(true, -1, null, null);
@@ -89,7 +89,15 @@ public class Parser {
         return result;
     }
     
-    public boolean parseStatement() {
+    private boolean parseProgram() {
+        skipWhitespace();
+        if (parseStatement()) {
+            return parseProgram();
+        }
+        return index == input.length();
+    }
+    
+    private boolean parseStatement() {
         int startIndex = index;
         if (parseEscapeSequences() && parseString() && match(';')) {
             return true;
@@ -187,6 +195,12 @@ public class Parser {
         if (result.getErrorIndex() == -1) {
             result.setErrorIndex(index);
             result.setErrorMessage(errorMessage);
+        }
+    }
+    
+    private void skipWhitespace() {
+        while (index < input.length() && Character.isWhitespace(input.charAt(index))) {
+            index++;
         }
     }
 }
