@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -17,7 +18,21 @@ public class Parser {
     private String input;
     private int index = 0;
     private static final List<String> VALID_ESCAPE_CHARACTERS = createSortedEscapeCharactersList();
-
+    private static final Set<Character> VALID_LETTERS = Set.of(
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+    );
+    private static final Set<Character> VALID_NUMBERS = Set.of(
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+    );
+    private static final Set<Character> VALID_SYMBOLS = Set.of(
+        '!', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.',
+        '/', ':', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{',
+        '|', '}', '~', ' '
+    );
+    
     /*
             PRODUCTION RULES:
                   <program> ::= <statement><program> | e
@@ -114,24 +129,38 @@ public class Parser {
     }
     
     private boolean parseString() {
-        // Recursively check every character if each character of the string is valid
-        if (index < input.length() && isValidCharacter(input.charAt(index))) {
-            // Move to the next character and check for validity
-            index++;
+        if (parseCharacter()) {
             return parseString();
         }
-        return index == input.length();
+        // Epsilon case
+        return true;
     }
     
-    private boolean isValidCharacter(char character) {
-        return isValidLetterOrNumber(character) || isValidSymbol(character);
+    private boolean parseCharacter() {
+        return parseLetter() || parseNumber() || parseSymbol();
     }
     
-    private boolean isValidLetterOrNumber(char character) {
-        return Character.isLetterOrDigit(character);
+    private boolean parseLetter() {
+        if (index < input.length() && VALID_LETTERS.contains(input.charAt(index))) {
+            index++;
+            return true;
+        }
+        return false;
     }
-    private boolean isValidSymbol(char character) {
-        String allowedSymbols = "!#$%&'()*+,-./:<=>?@[]^_`{|}~ \\;";
-        return allowedSymbols.indexOf(character) != -1;
+    
+    private boolean parseNumber() {
+        if (index < input.length() && VALID_NUMBERS.contains(input.charAt(index))) {
+            index++;
+            return true;
+        }
+        return false;
+    }
+    
+    private boolean parseSymbol() {
+        if (index < input.length() && VALID_SYMBOLS.contains(input.charAt(index))) {
+            index++;
+            return true;
+        }
+        return false;
     }
 }
