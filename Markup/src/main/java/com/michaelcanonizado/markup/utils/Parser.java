@@ -40,9 +40,40 @@ public class Parser {
     }
     
     public boolean parse() {
-        int lastIndex = parseString();
-        System.out.println("\nLast position: " + lastIndex);
-        if (lastIndex == input.length()) return true;
+        boolean isValidSyntax = parseEscapeSequences();
+        System.out.println("\nLast position: " + index);
+        return isValidSyntax && index == input.length();
+    }
+    
+    private boolean parseEscapeSequences() {
+        if (parseEscapeSequence()) {
+            return parseEscapeSequencesTail();
+        }
+        return false;
+    }
+
+    private boolean parseEscapeSequencesTail() {
+        if (index < input.length() && input.charAt(index) == '\\') {
+            return parseEscapeSequence() && parseEscapeSequencesTail();
+        }
+        return true;
+    }
+
+    private boolean parseEscapeSequence() {
+        if (index < input.length() && input.charAt(index) == '\\') {
+            index++;
+            return parseEscapeCharacter();
+        }
+        return false;
+    }
+
+    private boolean parseEscapeCharacter() {
+        for (String esc : ESCAPE_CHARACTERS) {
+            if (input.startsWith(esc, index)) {
+                index += esc.length();
+                return true;
+            }
+        }
         return false;
     }
     
