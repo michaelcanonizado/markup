@@ -13,7 +13,7 @@ import com.michaelcanonizado.markup.utils.Parser;
 public class Markup {
 
     public static void main(String[] args) {
-        String input = "\\h\\hello\\p1";
+        String input = "\\h\\hello\\x\\p1";
 //        String input = "\\h\\lHello World!;";
         Parser parser = new Parser(input);
         

@@ -4,6 +4,7 @@
  */
 package com.michaelcanonizado.markup.utils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -15,8 +16,8 @@ import java.util.List;
 public class Parser {
     private String input;
     private int index = 0;
-    private static final List<String> ESCAPE_CHARACTERS = List.of("p1", "h", "hello", "z");
-    
+    private static final List<String> ESCAPE_CHARACTERS = createSortedEscapeCharactersList();
+
     /*
             PRODUCTION RULES:
                   <program> ::= <statement><program> | e
@@ -37,6 +38,17 @@ public class Parser {
 
     public Parser(String input) {
         this.input = input;
+        ESCAPE_CHARACTERS.sort(Comparator
+            .comparingInt(String::length).reversed()
+            .thenComparing(Comparator.naturalOrder()));
+    }
+    
+    private static List<String> createSortedEscapeCharactersList() {
+        List<String> list = new ArrayList<>(List.of("p1", "h", "hello", "z"));
+        list.sort(Comparator
+            .comparingInt(String::length).reversed()
+            .thenComparing(Comparator.naturalOrder()));
+        return list;
     }
     
     public boolean parse() {
