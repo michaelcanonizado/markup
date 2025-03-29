@@ -23,9 +23,9 @@ public class Markup {
         ParserResult result = parser.parse();
         System.out.println(result);
         
-//        java.awt.EventQueue.invokeLater(() -> {
-//            Index pages = new Index();
-//            pages.setVisible(true);
-//        });
+        java.awt.EventQueue.invokeLater(() -> {
+            Index pages = new Index();
+            pages.setVisible(true);
+        });
     }
 }
