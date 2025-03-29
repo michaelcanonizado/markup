@@ -13,12 +13,13 @@ import com.michaelcanonizado.markup.utils.Parser;
 public class Markup {
 
     public static void main(String[] args) {
-        String input = "\\z";
-//        String input = "\\h\\lHello World!;";
+//        String input = "\\z";
+        String input = "\\h\\lHello World!;";
+        Parser parser = new Parser(input);
         
         System.out.println("Input: " + input);
         System.out.println("Input Length: " + input.length());
-        boolean isValidSyntax = Parser.parse(input);
+        boolean isValidSyntax = parser.parse();
         System.out.println("Is valid syntax: " + isValidSyntax);
         
 //        java.awt.EventQueue.invokeLater(() -> {

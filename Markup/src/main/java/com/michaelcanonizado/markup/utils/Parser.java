@@ -14,7 +14,8 @@ import java.util.List;
  */
 public class Parser {
     private String input;
-    private int index;
+    private int index = 0;
+    private static final List<String> ESCAPE_CHARACTERS = List.of("p1", "h", "hello");
     
     /*
             PRODUCTION RULES:
@@ -34,37 +35,33 @@ public class Parser {
                                 | ^ | _ | ` | { | | | } | ~
     */
 
-    public boolean Parser() {
-        throw new UnsupportedOperationException("Cannot instantiate the utility Parser class!");
+    public Parser(String input) {
+        this.input = input;
     }
     
-    public static boolean parse(String input) {
-        int lastIndex = parseString(input, 0);
+    public boolean parse() {
+        int lastIndex = parseString();
         System.out.println("\nLast position: " + lastIndex);
         if (lastIndex == input.length()) return true;
         return false;
     }
     
-    private static boolean isValidEscapeCharacter(char character) {
-        String validEscapeCharacters = "htl";
-        return validEscapeCharacters.indexOf(character) != -1;
-    }
-    
-    private static int parseString(String input, int index) {
+    private int parseString() {
         if (index < input.length() && isValidCharacter(input.charAt(index))) {
-            return parseString(input, index + 1);
+            index++;
+            return parseString();
         }
         return index;
     }
     
-    private static boolean isValidCharacter(char character) {
+    private boolean isValidCharacter(char character) {
         return isValidLetterOrNumber(character) || isValidSymbol(character);
     }
     
-    private static boolean isValidLetterOrNumber(char character) {
+    private boolean isValidLetterOrNumber(char character) {
         return Character.isLetterOrDigit(character);
     }
-    private static boolean isValidSymbol(char character) {
+    private boolean isValidSymbol(char character) {
         String allowedSymbols = "!#$%&'()*+,-./:<=>?@[]^_`{|}~ \\;";
         return allowedSymbols.indexOf(character) != -1;
     }
