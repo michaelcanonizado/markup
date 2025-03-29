@@ -15,7 +15,7 @@ import java.util.List;
 public class Parser {
     private String input;
     private int index = 0;
-    private static final List<String> ESCAPE_CHARACTERS = List.of("p1", "h", "hello");
+    private static final List<String> ESCAPE_CHARACTERS = List.of("p1", "h", "hello", "z");
     
     /*
             PRODUCTION RULES:
@@ -40,7 +40,7 @@ public class Parser {
     }
     
     public boolean parse() {
-        boolean isValidSyntax = parseString();
+        boolean isValidSyntax = parseEscapeSequences();
         System.out.println("\nLast position: " + index);
         return isValidSyntax && index == input.length();
     }
@@ -56,11 +56,13 @@ public class Parser {
         if (index < input.length() && input.charAt(index) == '\\') {
             return parseEscapeSequence() && parseEscapeSequencesTail();
         }
+        // Epsilon case
         return true;
     }
 
     private boolean parseEscapeSequence() {
         if (index < input.length() && input.charAt(index) == '\\') {
+            // Consume the '\'
             index++;
             return parseEscapeCharacter();
         }
@@ -68,9 +70,10 @@ public class Parser {
     }
 
     private boolean parseEscapeCharacter() {
-        for (String esc : ESCAPE_CHARACTERS) {
-            if (input.startsWith(esc, index)) {
-                index += esc.length();
+        // See if the current escape sequence matches any of the valid escape characters
+        for (String validEscapeCharacters : ESCAPE_CHARACTERS) {
+            if (input.startsWith(validEscapeCharacters, index)) {
+                index += validEscapeCharacters.length();
                 return true;
             }
         }
