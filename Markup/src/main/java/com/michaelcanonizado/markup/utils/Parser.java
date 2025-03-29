@@ -39,29 +39,10 @@ public class Parser {
     }
     
     public static boolean parse(String input) {
-        int lastIndex = parseEscapeSequence(input, 0);
+        int lastIndex = parseString(input, 0);
         System.out.println("\nLast position: " + lastIndex);
         if (lastIndex == input.length()) return true;
         return false;
-    }
-    
-    private static int parseEscapeSequence(String input, int index) {
-        List<String> validEscapeSequences = Arrays.asList(
-        "mic","t","l","h1","michael","z"
-        );
-        validEscapeSequences.sort(Comparator.comparingInt(String::length).reversed().thenComparing(Comparator.naturalOrder()));
-        
-        if (input.charAt(index) == '\\') {
-            int validEscapeSequenceIndex = -1;
-            for (String escapeSequence : validEscapeSequences) {
-                validEscapeSequenceIndex = input.indexOf(escapeSequence);
-                System.out.println("Searching for: "+escapeSequence+" Found at: "+validEscapeSequenceIndex);
-                if (validEscapeSequenceIndex != -1) {
-                    return index + 1 + escapeSequence.length();
-                }
-            }
-        }
-        return index + 1;
     }
     
     private static boolean isValidEscapeCharacter(char character) {
