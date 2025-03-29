@@ -40,7 +40,7 @@ public class Parser {
     }
     
     public boolean parse() {
-        boolean isValidSyntax = parseEscapeSequences();
+        boolean isValidSyntax = parseString();
         System.out.println("\nLast position: " + index);
         return isValidSyntax && index == input.length();
     }
@@ -77,14 +77,14 @@ public class Parser {
         return false;
     }
     
-    private int parseString() {
+    private boolean parseString() {
         // Recursively check every character if each character of the string is valid
         if (index < input.length() && isValidCharacter(input.charAt(index))) {
             // Move to the next character and check for validity
             index++;
             return parseString();
         }
-        return index;
+        return index == input.length();
     }
     
     private boolean isValidCharacter(char character) {
