@@ -43,6 +43,18 @@ public class Parser {
             .thenComparing(Comparator.naturalOrder()));
     }
     
+    /*
+    * Sorts ESCAPE_CHARACTERS by length in descending order,
+    * and alphabetically in ascending order.
+    * 
+    * This ensures that longer escape sequences are given priority.
+    * E.g:
+    * Valid Escape Sequences: ['\h', '\hello']
+    * Input String: "\hello"
+    * With an unsorted list, the parser will consume the "\h" in "\hello"!
+    * And leave "ello" to be parsed next. This is not the desired behaviour.
+    * A simple solution to this is to prioritize longer escape sequences.
+    */
     private static List<String> createSortedEscapeCharactersList() {
         List<String> list = new ArrayList<>(List.of("p1", "h", "hello", "z"));
         list.sort(Comparator
