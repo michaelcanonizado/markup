@@ -5,6 +5,7 @@
 package com.michaelcanonizado.markup;
 import com.michaelcanonizado.markup.frames.pages.Index;
 import com.michaelcanonizado.markup.utils.Parser;
+import com.michaelcanonizado.markup.utils.ParserResult;
 
 /**
  *
@@ -19,8 +20,8 @@ public class Markup {
         
         System.out.println("Input: " + input);
         System.out.println("Input Length: " + input.length());
-        boolean isValidSyntax = parser.parse();
-        System.out.println("Is valid syntax: " + isValidSyntax);
+        ParserResult result = parser.parse();
+        System.out.println(result);
         
 //        java.awt.EventQueue.invokeLater(() -> {
 //            Index pages = new Index();

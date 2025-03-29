@@ -32,6 +32,7 @@ public class Parser {
         '/', ':', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{',
         '|', '}', '~', ' '
     );
+    private ParserResult result = new ParserResult(true, -1, null, null);
     
     /*
             PRODUCTION RULES:
@@ -78,10 +79,11 @@ public class Parser {
         return list;
     }
     
-    public boolean parse() {
+    public ParserResult parse() {
         boolean isValidSyntax = parseStatement();
         System.out.println("\nLast position: " + index);
-        return isValidSyntax && index == input.length();
+//        return isValidSyntax && index == input.length();
+        return result;
     }
     
     // <statement> ::= <escape_sequences><string>;
