@@ -107,9 +107,9 @@ public class Parser {
     
     private StatementData parseStatement() {
         List<String> escapeSequences = new ArrayList<>();
-        StringBuilder stringBuilder = new StringBuilder("Hello World!");
+        StringBuilder stringBuilder = new StringBuilder();
         
-        if (parseEscapeSequences(escapeSequences) && parseString() && match(';')) {
+        if (parseEscapeSequences(escapeSequences) && parseString(stringBuilder ) && match(';')) {
             return new StatementData(escapeSequences, stringBuilder.toString());
         }
         return null;
@@ -156,39 +156,42 @@ public class Parser {
         return false;
     }
     
-    private boolean parseString() {
-        if (parseCharacter()) {
-            return parseString();
+    private boolean parseString(StringBuilder stringBuilder) {
+        if (parseCharacter(stringBuilder)) {
+            return parseString(stringBuilder);
         }
         // Epsilon case
         return true;
     }
     
-    private boolean parseCharacter() {
-        if (parseLetter() || parseNumber() || parseSymbol()) {
+    private boolean parseCharacter(StringBuilder stringBuilder) {
+        if (parseLetter(stringBuilder) || parseNumber(stringBuilder) || parseSymbol(stringBuilder)) {
             return true;
         }
         return false;
     }
     
-    private boolean parseLetter() {
+    private boolean parseLetter(StringBuilder stringBuilder) {
         if (index < input.length() && VALID_LETTERS.contains(input.charAt(index))) {
+            stringBuilder.append(input.charAt(index));
             index++;
             return true;
         }
         return false;
     }
     
-    private boolean parseNumber() {
+    private boolean parseNumber(StringBuilder stringBuilder) {
         if (index < input.length() && VALID_NUMBERS.contains(input.charAt(index))) {
+            stringBuilder.append(input.charAt(index));
             index++;
             return true;
         }
         return false;
     }
     
-    private boolean parseSymbol() {
+    private boolean parseSymbol(StringBuilder stringBuilder) {
         if (index < input.length() && VALID_SYMBOLS.contains(input.charAt(index))) {
+            stringBuilder.append(input.charAt(index));
             index++;
             return true;
         }
