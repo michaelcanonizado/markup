@@ -58,8 +58,8 @@ public class ParserResult {
         if (isValid) {
             return "Parsing successful!";
         }
-        return "Parsing failed at index " + errorIndex + 
-                ":\nError Message: " + errorMessage +
-                "\nContext: " + errorContext;
+        return "\tParsing failed at index " + errorIndex + 
+                ":\n\tError Message: " + errorMessage +
+                "\n\tContext: " + errorContext;
     }
 }

@@ -32,7 +32,7 @@ public class Parser {
         '/', ':', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{',
         '|', '}', '~', ' '
     );
-    private ParserResult result = new ParserResult(true, -1, null, null);
+    private ParserResult result = new ParserResult(false, -1, null, null);
     
     /*
             PRODUCTION RULES:
@@ -81,12 +81,14 @@ public class Parser {
     
     public ParserResult parse() {
         boolean isValidSyntax = parseStatement();
-        System.out.println("\nLast position: " + index);
 //        return isValidSyntax && index == input.length();
+        if (index == input.length() && isValidSyntax) {
+            return new ParserResult(true, -1, null, null);
+        }
+        result.setErrorIndex(index-1);
         return result;
     }
     
-    // <statement> ::= <escape_sequences><string>;
     public boolean parseStatement() {
         int startIndex = index;
         if (parseEscapeSequences() && parseString() && match(';')) {
@@ -139,7 +141,10 @@ public class Parser {
     }
     
     private boolean parseCharacter() {
-        return parseLetter() || parseNumber() || parseSymbol();
+        if (parseLetter() || parseNumber() || parseSymbol()) {
+            return true;
+        }
+        return false;
     }
     
     private boolean parseLetter() {
@@ -171,6 +176,17 @@ public class Parser {
             index++;
             return true;
         }
+        setError(
+            "Expected '" + expectedCharacter + "' but found '" +
+            input.charAt(index) + "'."
+        );
         return false;
+    }
+    
+    private void setError(String errorMessage) {
+        if (result.getErrorIndex() == -1) {
+            result.setErrorIndex(index);
+            result.setErrorMessage(errorMessage);
+        }
     }
 }
