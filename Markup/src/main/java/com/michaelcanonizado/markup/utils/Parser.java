@@ -87,7 +87,7 @@ public class Parser {
     // <statement> ::= <escape_sequences><string>;
     public boolean parseStatement() {
         int startIndex = index;
-        if (parseEscapeSequences() && parseString()) {
+        if (parseEscapeSequences() && parseString() && match(';')) {
             return true;
         }
         return false;
