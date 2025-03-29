@@ -47,7 +47,9 @@ public class Parser {
     }
     
     private int parseString() {
+        // Recursively check every character if each character of the string is valid
         if (index < input.length() && isValidCharacter(input.charAt(index))) {
+            // Move to the next character and check for validity
             index++;
             return parseString();
         }
