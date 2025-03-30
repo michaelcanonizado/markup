@@ -229,13 +229,13 @@ public class Index extends javax.swing.JFrame {
         Parser parser = new Parser(text);
         ParserResult result = parser.parse();
         System.out.println(result);
+        
+        console.removeAll();
         for (StatementData statement : result.getStatements()) {
-            
             JLabel label = new JLabel(HtmlFormatter.formatHtml(statement.getText(), statement.getEscapeSequences()));
             console.setLayout(new BoxLayout(console, BoxLayout.Y_AXIS));
             console.add(label);
         }
-        
         console.revalidate();
         console.repaint();
     }//GEN-LAST:event_textEditorBtnMouseClicked
