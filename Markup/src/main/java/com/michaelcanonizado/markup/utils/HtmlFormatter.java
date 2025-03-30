@@ -14,12 +14,16 @@ import java.util.Stack;
  */
 public class HtmlFormatter {
     private static final Map<String, String> TAGS = Map.of(
+        "\\blockquote", "blockquote",
         "\\h1", "h1",
         "\\h2", "h2",
+        "\\h3", "h3",
         "\\p", "p",
         "\\b", "b",
         "\\i", "i",
-        "\\u", "u"
+        "\\u", "u",
+        "\\s", "s",
+        "\\li", "li"
     );
 
     public static String formatHtml(String text, List<String> escapeChars) {
