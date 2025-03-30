@@ -38,7 +38,7 @@ public class Index extends javax.swing.JFrame {
         syntaxGuildlineContainer.setBorder(new StitchBorder(StitchBorder.TOP | StitchBorder.RIGHT));
         consoleHeader.setBorder(new StitchBorder(StitchBorder.BOTTOM));
         
-        resultLabel.setBounds(10,20,150,20);
+        resultLabel.setBounds(10,17,150,20);
         resultLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         parsingResultHeader.add(resultLabel);
     }
@@ -72,6 +72,20 @@ public class Index extends javax.swing.JFrame {
         syntaxGuildlineContainer = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         consoleContainer = new javax.swing.JPanel();
         consoleHeader = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -219,32 +233,119 @@ public class Index extends javax.swing.JFrame {
         );
         parsingResultHeaderLayout.setVerticalGroup(
             parsingResultHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGap(0, 49, Short.MAX_VALUE)
         );
 
         syntaxGuildlineContainer.setBackground(new java.awt.Color(9, 9, 11));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(250, 250, 250));
-        jLabel5.setText("Escape Sequences:");
+        jLabel5.setText("Escape Sequences : ");
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(250, 250, 250));
         jLabel6.setText("Syntax : <escape_sequence><string>;");
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel7.setText("\\h1 : Heading 2");
+
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel8.setText("\\h2 : Heading 2");
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel9.setText("\\h3 : Heading 3");
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel10.setText("\\p   : Paragraph");
+
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel11.setText("\\i                 : Italic");
+
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel12.setText("\\b   : Bold");
+
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel13.setText("\\u                : Underlined");
+
+        jLabel14.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel14.setText("\\s                 : Strikethrough");
+
+        jLabel15.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel15.setText("\\blockquote : Blockquote");
+
+        jLabel16.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel16.setText("\\li                 : List Item");
+
+        jLabel19.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel19.setText("and synbols apart from ';' and '\\'");
+
+        jLabel18.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel18.setText("String : Can contain any alphanumeric ");
+
+        jLabel17.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel17.setText("Example : \\h1\\bThis is a Heading 1 that is also bold!;");
+
+        jLabel20.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel20.setText("Note: Don't forget the ';' at the end of every line!");
 
         javax.swing.GroupLayout syntaxGuildlineContainerLayout = new javax.swing.GroupLayout(syntaxGuildlineContainer);
         syntaxGuildlineContainer.setLayout(syntaxGuildlineContainerLayout);
         syntaxGuildlineContainerLayout.setHorizontalGroup(
             syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel5)
+                .addGap(0, 0, 0)
+                .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel12))
+                .addGap(41, 41, 41)
                 .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel11))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(192, Short.MAX_VALUE))
+                    .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
+                        .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel18))
+                        .addContainerGap(199, Short.MAX_VALUE))))
+            .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel17))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         syntaxGuildlineContainerLayout.setVerticalGroup(
             syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,33 +353,59 @@ public class Index extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel11))
+                .addGap(0, 0, 0)
+                .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel13))
+                .addGap(0, 0, 0)
+                .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel14))
+                .addGap(0, 0, 0)
+                .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel15))
+                .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel16))
+                .addGap(5, 5, 5)
+                .addComponent(jLabel18)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel19)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel17)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel20)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout textEditorContainerLayout = new javax.swing.GroupLayout(textEditorContainer);
         textEditorContainer.setLayout(textEditorContainerLayout);
         textEditorContainerLayout.setHorizontalGroup(
             textEditorContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(textEditorHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
-            .addComponent(parsingResultHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(textEditorHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
             .addComponent(syntaxGuildlineContainer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(textEditorContainerLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, textEditorContainerLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(textEditorContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(parsingResultHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
         textEditorContainerLayout.setVerticalGroup(
             textEditorContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(textEditorContainerLayout.createSequentialGroup()
                 .addComponent(textEditorHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(syntaxGuildlineContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(syntaxGuildlineContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
-                .addComponent(parsingResultHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(parsingResultHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         consoleContainer.setBackground(new java.awt.Color(9, 9, 11));
@@ -314,7 +441,7 @@ public class Index extends javax.swing.JFrame {
         console.setLayout(consoleLayout);
         consoleLayout.setHorizontalGroup(
             consoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 512, Short.MAX_VALUE)
+            .addGap(0, 528, Short.MAX_VALUE)
         );
         consoleLayout.setVerticalGroup(
             consoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,7 +471,7 @@ public class Index extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(simpleTitleBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1036, Short.MAX_VALUE)
+            .addComponent(simpleTitleBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1068, Short.MAX_VALUE)
             .addComponent(guiHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(textEditorContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -447,11 +574,25 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JPanel consoleHeader;
     private javax.swing.JPanel guiHeader;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
