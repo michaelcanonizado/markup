@@ -9,6 +9,8 @@ import com.michaelcanonizado.markup.utils.Parser;
 import com.michaelcanonizado.markup.utils.ParserResult;
 import com.michaelcanonizado.markup.utils.StatementData;
 import com.michaelcanonizado.markup.utils.StitchBorder;
+import java.awt.Color;
+import java.awt.Font;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 
@@ -20,6 +22,7 @@ import javax.swing.JLabel;
  */
 public class Index extends javax.swing.JFrame {
     private String text = null;
+    private JLabel resultLabel = new JLabel();
 
     /**
      * Creates new form Index
@@ -27,10 +30,17 @@ public class Index extends javax.swing.JFrame {
     public Index() {
         initComponents();
         simpleTitleBar1.init(this);
+        
         guiHeader.setBorder(new StitchBorder(StitchBorder.BOTTOM | StitchBorder.TOP));
         textEditorHeader.setBorder(new StitchBorder(StitchBorder.BOTTOM | StitchBorder.RIGHT));
         textEditorContainer.setBorder(new StitchBorder(StitchBorder.RIGHT));
+        parsingResultHeader.setBorder(new StitchBorder(StitchBorder.TOP | StitchBorder.RIGHT));
+        syntaxGuildlineContainer.setBorder(new StitchBorder(StitchBorder.TOP | StitchBorder.RIGHT));
         consoleHeader.setBorder(new StitchBorder(StitchBorder.BOTTOM));
+        
+        resultLabel.setBounds(10,20,150,20);
+        resultLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        parsingResultHeader.add(resultLabel);
     }
 
     /**
@@ -57,6 +67,10 @@ public class Index extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         textEditor = new javax.swing.JTextArea();
+        parsingResultHeader = new javax.swing.JPanel();
+        syntaxGuildlineContainer = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         consoleContainer = new javax.swing.JPanel();
         consoleHeader = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -176,15 +190,65 @@ public class Index extends javax.swing.JFrame {
         textEditor.setCaretColor(new java.awt.Color(250, 250, 250));
         jScrollPane2.setViewportView(textEditor);
 
+        parsingResultHeader.setBackground(new java.awt.Color(9, 9, 11));
+        parsingResultHeader.setForeground(new java.awt.Color(250, 250, 250));
+
+        javax.swing.GroupLayout parsingResultHeaderLayout = new javax.swing.GroupLayout(parsingResultHeader);
+        parsingResultHeader.setLayout(parsingResultHeaderLayout);
+        parsingResultHeaderLayout.setHorizontalGroup(
+            parsingResultHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        parsingResultHeaderLayout.setVerticalGroup(
+            parsingResultHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+
+        syntaxGuildlineContainer.setBackground(new java.awt.Color(9, 9, 11));
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel5.setText("Escape Sequences:");
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel6.setText("Syntax : <escape_sequence><string>;");
+
+        javax.swing.GroupLayout syntaxGuildlineContainerLayout = new javax.swing.GroupLayout(syntaxGuildlineContainer);
+        syntaxGuildlineContainer.setLayout(syntaxGuildlineContainerLayout);
+        syntaxGuildlineContainerLayout.setHorizontalGroup(
+            syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
+                .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        syntaxGuildlineContainerLayout.setVerticalGroup(
+            syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addContainerGap(149, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout textEditorContainerLayout = new javax.swing.GroupLayout(textEditorContainer);
         textEditorContainer.setLayout(textEditorContainerLayout);
         textEditorContainerLayout.setHorizontalGroup(
             textEditorContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(textEditorHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, textEditorContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(parsingResultHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(syntaxGuildlineContainer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(textEditorContainerLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         textEditorContainerLayout.setVerticalGroup(
             textEditorContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,6 +256,10 @@ public class Index extends javax.swing.JFrame {
                 .addComponent(textEditorHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(syntaxGuildlineContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(parsingResultHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -301,6 +369,12 @@ public class Index extends javax.swing.JFrame {
         ParserResult result = parser.parse();
         System.out.println(result);
         
+        String resultMessage = result.getIsValid() ? "VALID SYNTAX!" : "SYNTAX ERROR!";
+        Color resultLabelForeground = result.getIsValid() ? Color.GREEN : Color.RED;
+        resultLabel.setText(resultMessage);
+        resultLabel.setForeground(resultLabelForeground);
+        
+        
         console.removeAll();
         for (StatementData statement : result.getStatements()) {
             JLabel label = new JLabel(HtmlFormatter.formatHtml(statement.getText(), statement.getEscapeSequences()));
@@ -309,6 +383,8 @@ public class Index extends javax.swing.JFrame {
         }
         console.revalidate();
         console.repaint();
+        parsingResultHeader.revalidate();
+        parsingResultHeader.repaint();
     }//GEN-LAST:event_textEditorBtnMouseClicked
 
     /**
@@ -355,13 +431,17 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JPanel parsingResultHeader;
     private javaswingdev.SimpleTitleBar simpleTitleBar1;
     private javaswingdev.SimpleTitleBar simpleTitleBar2;
+    private javax.swing.JPanel syntaxGuildlineContainer;
     private javax.swing.JTextArea textEditor;
     private javax.swing.JButton textEditorBtn;
     private javax.swing.JPanel textEditorContainer;

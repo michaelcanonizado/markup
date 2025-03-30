@@ -25,7 +25,7 @@ public class ParserResult {
         this.errorContext = errorContext;
     }
 
-    public boolean isIsValid() {
+    public boolean getIsValid() {
         return isValid;
     }
 
