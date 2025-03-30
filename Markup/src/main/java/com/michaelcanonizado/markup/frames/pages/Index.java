@@ -514,8 +514,13 @@ public class Index extends javax.swing.JFrame {
         resultLabel.setText(resultMessage);
         resultLabel.setForeground(resultLabelForeground);
         
-        
         console.removeAll();
+        if (!result.getIsValid()) {
+            console.revalidate();
+            console.repaint();
+            return;
+        }
+        
         for (StatementData statement : result.getStatements()) {
             JLabel label = new JLabel(HtmlFormatter.formatHtml(statement.getText(), statement.getEscapeSequences()));
             label.setForeground(Color.WHITE);
