@@ -27,7 +27,10 @@ public class Index extends javax.swing.JFrame {
     public Index() {
         initComponents();
         simpleTitleBar1.init(this);
+        guiHeader.setBorder(new StitchBorder(StitchBorder.BOTTOM | StitchBorder.TOP));
+        textEditorHeader.setBorder(new StitchBorder(StitchBorder.BOTTOM | StitchBorder.RIGHT));
         textEditorContainer.setBorder(new StitchBorder(StitchBorder.RIGHT));
+        consoleHeader.setBorder(new StitchBorder(StitchBorder.BOTTOM));
     }
 
     /**
@@ -45,7 +48,7 @@ public class Index extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         simpleTitleBar1 = new javaswingdev.SimpleTitleBar();
-        header = new javax.swing.JPanel();
+        guiHeader = new javax.swing.JPanel();
         textEditorContainer = new javax.swing.JPanel();
         textEditorHeader = new javax.swing.JPanel();
         textEditorBtn = new javax.swing.JButton();
@@ -78,23 +81,25 @@ public class Index extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(9, 9, 11));
 
-        header.setBackground(new java.awt.Color(60, 63, 165));
+        simpleTitleBar1.setBackground(new java.awt.Color(9, 9, 11));
 
-        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
-        header.setLayout(headerLayout);
-        headerLayout.setHorizontalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        guiHeader.setBackground(new java.awt.Color(9, 9, 11));
+
+        javax.swing.GroupLayout guiHeaderLayout = new javax.swing.GroupLayout(guiHeader);
+        guiHeader.setLayout(guiHeaderLayout);
+        guiHeaderLayout.setHorizontalGroup(
+            guiHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        headerLayout.setVerticalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        guiHeaderLayout.setVerticalGroup(
+            guiHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
         textEditorContainer.setBackground(new java.awt.Color(9, 9, 11));
         textEditorContainer.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
-        textEditorHeader.setBackground(new java.awt.Color(190, 63, 65));
+        textEditorHeader.setBackground(new java.awt.Color(9, 9, 11));
         textEditorHeader.setPreferredSize(new java.awt.Dimension(512, 50));
 
         textEditorBtn.setText("Run");
@@ -158,7 +163,7 @@ public class Index extends javax.swing.JFrame {
 
         consoleContainer.setBackground(new java.awt.Color(9, 9, 11));
 
-        consoleHeader.setBackground(new java.awt.Color(60, 193, 65));
+        consoleHeader.setBackground(new java.awt.Color(9, 9, 11));
 
         javax.swing.GroupLayout consoleHeaderLayout = new javax.swing.GroupLayout(consoleHeader);
         consoleHeader.setLayout(consoleHeaderLayout);
@@ -209,7 +214,7 @@ public class Index extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(simpleTitleBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1036, Short.MAX_VALUE)
-            .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(guiHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(textEditorContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -220,7 +225,7 @@ public class Index extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(simpleTitleBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(guiHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textEditorContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -300,7 +305,7 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JPanel console;
     private javax.swing.JPanel consoleContainer;
     private javax.swing.JPanel consoleHeader;
-    private javax.swing.JPanel header;
+    private javax.swing.JPanel guiHeader;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;

@@ -85,7 +85,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="simpleTitleBar1" pref="1036" max="32767" attributes="0"/>
-              <Component id="header" alignment="0" max="32767" attributes="0"/>
+              <Component id="guiHeader" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <Component id="textEditorContainer" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -98,7 +98,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="simpleTitleBar1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="header" min="-2" max="-2" attributes="0"/>
+                  <Component id="guiHeader" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="textEditorContainer" max="32767" attributes="0"/>
@@ -110,11 +110,16 @@
       </Layout>
       <SubComponents>
         <Component class="javaswingdev.SimpleTitleBar" name="simpleTitleBar1">
-        </Component>
-        <Container class="javax.swing.JPanel" name="header">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="a5" green="3f" red="3c" type="rgb"/>
+              <Color blue="b" green="9" red="9" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JPanel" name="guiHeader">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="b" green="9" red="9" type="rgb"/>
             </Property>
           </Properties>
 
@@ -169,7 +174,7 @@
             <Container class="javax.swing.JPanel" name="textEditorHeader">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="41" green="3f" red="be" type="rgb"/>
+                  <Color blue="b" green="9" red="9" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[512, 50]"/>
@@ -277,7 +282,7 @@
             <Container class="javax.swing.JPanel" name="consoleHeader">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="41" green="c1" red="3c" type="rgb"/>
+                  <Color blue="b" green="9" red="9" type="rgb"/>
                 </Property>
               </Properties>
 
