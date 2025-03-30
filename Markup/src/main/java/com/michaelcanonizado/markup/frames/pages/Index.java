@@ -8,10 +8,11 @@ import com.michaelcanonizado.markup.utils.HtmlFormatter;
 import com.michaelcanonizado.markup.utils.Parser;
 import com.michaelcanonizado.markup.utils.ParserResult;
 import com.michaelcanonizado.markup.utils.StatementData;
+import com.michaelcanonizado.markup.utils.StitchBorder;
 import javax.swing.BoxLayout;
-import javax.swing.JEditorPane;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
+
+
 
 /**
  *
@@ -26,6 +27,7 @@ public class Index extends javax.swing.JFrame {
     public Index() {
         initComponents();
         simpleTitleBar1.init(this);
+        textEditorContainer.setBorder(new StitchBorder(StitchBorder.RIGHT));
     }
 
     /**
@@ -89,7 +91,8 @@ public class Index extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        textEditorContainer.setBackground(new java.awt.Color(130, 63, 65));
+        textEditorContainer.setBackground(new java.awt.Color(9, 9, 11));
+        textEditorContainer.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
         textEditorHeader.setBackground(new java.awt.Color(190, 63, 65));
         textEditorHeader.setPreferredSize(new java.awt.Dimension(512, 50));
@@ -111,7 +114,7 @@ public class Index extends javax.swing.JFrame {
         textEditorHeaderLayout.setHorizontalGroup(
             textEditorHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, textEditorHeaderLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(423, Short.MAX_VALUE)
                 .addComponent(textEditorBtn)
                 .addGap(17, 17, 17))
         );
@@ -123,8 +126,15 @@ public class Index extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
+        jScrollPane2.setBorder(null);
+
+        textEditor.setBackground(new java.awt.Color(9, 9, 11));
         textEditor.setColumns(20);
+        textEditor.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        textEditor.setForeground(new java.awt.Color(250, 250, 250));
         textEditor.setRows(5);
+        textEditor.setBorder(null);
+        textEditor.setCaretColor(new java.awt.Color(250, 250, 250));
         jScrollPane2.setViewportView(textEditor);
 
         javax.swing.GroupLayout textEditorContainerLayout = new javax.swing.GroupLayout(textEditorContainer);
@@ -132,17 +142,21 @@ public class Index extends javax.swing.JFrame {
         textEditorContainerLayout.setHorizontalGroup(
             textEditorContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(textEditorHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, textEditorContainerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         textEditorContainerLayout.setVerticalGroup(
             textEditorContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(textEditorContainerLayout.createSequentialGroup()
                 .addComponent(textEditorHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
 
-        consoleContainer.setBackground(new java.awt.Color(60, 123, 65));
+        consoleContainer.setBackground(new java.awt.Color(9, 9, 11));
 
         consoleHeader.setBackground(new java.awt.Color(60, 193, 65));
 
@@ -157,6 +171,10 @@ public class Index extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        console.setBackground(new java.awt.Color(9, 9, 11));
+        console.setForeground(new java.awt.Color(250, 250, 250));
+        console.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout consoleLayout = new javax.swing.GroupLayout(console);
         console.setLayout(consoleLayout);
         consoleLayout.setHorizontalGroup(
@@ -165,7 +183,7 @@ public class Index extends javax.swing.JFrame {
         );
         consoleLayout.setVerticalGroup(
             consoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 524, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout consoleContainerLayout = new javax.swing.GroupLayout(consoleContainer);
@@ -173,14 +191,17 @@ public class Index extends javax.swing.JFrame {
         consoleContainerLayout.setHorizontalGroup(
             consoleContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(consoleHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(console, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(consoleContainerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(console, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         consoleContainerLayout.setVerticalGroup(
             consoleContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(consoleContainerLayout.createSequentialGroup()
                 .addComponent(consoleHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(console, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(console, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
