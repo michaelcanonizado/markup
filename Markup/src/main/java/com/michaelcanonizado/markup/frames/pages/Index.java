@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 
 
 
@@ -41,6 +42,8 @@ public class Index extends javax.swing.JFrame {
         resultLabel.setBounds(10,17,150,20);
         resultLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         parsingResultHeader.add(resultLabel);
+        
+        SwingUtilities.invokeLater(textEditor::requestFocusInWindow);
     }
 
     /**
@@ -121,7 +124,7 @@ public class Index extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(250, 250, 250));
-        jLabel1.setText("michaelcanonizado");
+        jLabel1.setText("@michaelcanonizado");
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(250, 250, 250));
