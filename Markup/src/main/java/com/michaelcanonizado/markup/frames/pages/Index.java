@@ -102,7 +102,11 @@ public class Index extends javax.swing.JFrame {
         textEditorHeader.setBackground(new java.awt.Color(9, 9, 11));
         textEditorHeader.setPreferredSize(new java.awt.Dimension(512, 50));
 
+        textEditorBtn.setBackground(new java.awt.Color(250, 250, 250));
+        textEditorBtn.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        textEditorBtn.setForeground(new java.awt.Color(9, 9, 11));
         textEditorBtn.setText("Run");
+        textEditorBtn.setBorder(null);
         textEditorBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 textEditorBtnMouseClicked(evt);
@@ -119,16 +123,16 @@ public class Index extends javax.swing.JFrame {
         textEditorHeaderLayout.setHorizontalGroup(
             textEditorHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, textEditorHeaderLayout.createSequentialGroup()
-                .addContainerGap(423, Short.MAX_VALUE)
-                .addComponent(textEditorBtn)
-                .addGap(17, 17, 17))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(textEditorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
         );
         textEditorHeaderLayout.setVerticalGroup(
             textEditorHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(textEditorHeaderLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(textEditorBtn)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addComponent(textEditorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jScrollPane2.setBorder(null);
@@ -149,7 +153,7 @@ public class Index extends javax.swing.JFrame {
             .addComponent(textEditorHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, textEditorContainerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
                 .addContainerGap())
         );
         textEditorContainerLayout.setVerticalGroup(
