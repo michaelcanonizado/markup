@@ -73,7 +73,7 @@ public class Parser {
     * A simple solution to this is to prioritize longer escape sequences.
     */
     private static List<String> createSortedEscapeCharactersList() {
-        List<String> list = new ArrayList<>(List.of("p1", "h", "hello", "z"));
+        List<String> list = new ArrayList<>(List.of("h1","h2","p","b","i","u"));
         list.sort(Comparator
             .comparingInt(String::length).reversed()
             .thenComparing(Comparator.naturalOrder()));

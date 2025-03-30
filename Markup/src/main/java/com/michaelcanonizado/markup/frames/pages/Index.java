@@ -4,6 +4,7 @@
  */
 package com.michaelcanonizado.markup.frames.pages;
 
+import com.michaelcanonizado.markup.utils.HtmlFormatter;
 import com.michaelcanonizado.markup.utils.Parser;
 import com.michaelcanonizado.markup.utils.ParserResult;
 import com.michaelcanonizado.markup.utils.StatementData;
@@ -178,7 +179,7 @@ public class Index extends javax.swing.JFrame {
             consoleContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(consoleContainerLayout.createSequentialGroup()
                 .addComponent(consoleHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(console, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -229,8 +230,8 @@ public class Index extends javax.swing.JFrame {
         ParserResult result = parser.parse();
         System.out.println(result);
         for (StatementData statement : result.getStatements()) {
-//            JLabel label = new JLabel("<html><h1 style='color:blue;'>Hello, Swing!</h1></html>");
-            JLabel label = new JLabel(statement.getText());
+            
+            JLabel label = new JLabel(HtmlFormatter.formatHtml(statement.getText(), statement.getEscapeSequences()));
             console.setLayout(new BoxLayout(console, BoxLayout.Y_AXIS));
             console.add(label);
         }
