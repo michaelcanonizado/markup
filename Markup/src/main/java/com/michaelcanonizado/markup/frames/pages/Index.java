@@ -378,6 +378,7 @@ public class Index extends javax.swing.JFrame {
         console.removeAll();
         for (StatementData statement : result.getStatements()) {
             JLabel label = new JLabel(HtmlFormatter.formatHtml(statement.getText(), statement.getEscapeSequences()));
+            label.setForeground(Color.WHITE);
             console.setLayout(new BoxLayout(console, BoxLayout.Y_AXIS));
             console.add(label);
         }
