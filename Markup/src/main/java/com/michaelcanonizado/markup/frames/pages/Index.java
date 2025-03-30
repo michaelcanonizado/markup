@@ -89,6 +89,7 @@ public class Index extends javax.swing.JFrame {
         consoleContainer = new javax.swing.JPanel();
         consoleHeader = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
         console = new javax.swing.JPanel();
 
         jScrollPane1.setViewportView(jTextPane1);
@@ -323,7 +324,7 @@ public class Index extends javax.swing.JFrame {
                             .addComponent(jLabel14)
                             .addComponent(jLabel13)
                             .addComponent(jLabel11))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 51, Short.MAX_VALUE))
                     .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
                         .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
@@ -332,14 +333,11 @@ public class Index extends javax.swing.JFrame {
             .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(192, Short.MAX_VALUE))
-                    .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
-                        .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel18))
-                        .addContainerGap(199, Short.MAX_VALUE))))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel19)
+                        .addComponent(jLabel18)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(syntaxGuildlineContainerLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(syntaxGuildlineContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -389,12 +387,10 @@ public class Index extends javax.swing.JFrame {
             textEditorContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(textEditorHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
             .addComponent(syntaxGuildlineContainer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(parsingResultHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, textEditorContainerLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(textEditorContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(parsingResultHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         textEditorContainerLayout.setVerticalGroup(
             textEditorContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -433,45 +429,44 @@ public class Index extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
+        jScrollPane4.setBackground(new java.awt.Color(9, 9, 11));
+        jScrollPane4.setBorder(null);
+
         console.setBackground(new java.awt.Color(9, 9, 11));
-        console.setForeground(new java.awt.Color(250, 250, 250));
-        console.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout consoleLayout = new javax.swing.GroupLayout(console);
         console.setLayout(consoleLayout);
         consoleLayout.setHorizontalGroup(
             consoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 528, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
         consoleLayout.setVerticalGroup(
             consoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
+
+        jScrollPane4.setViewportView(console);
 
         javax.swing.GroupLayout consoleContainerLayout = new javax.swing.GroupLayout(consoleContainer);
         consoleContainer.setLayout(consoleContainerLayout);
         consoleContainerLayout.setHorizontalGroup(
             consoleContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(consoleHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(consoleContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(console, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane4)
         );
         consoleContainerLayout.setVerticalGroup(
             consoleContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(consoleContainerLayout.createSequentialGroup()
                 .addComponent(consoleHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(console, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane4))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(simpleTitleBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1068, Short.MAX_VALUE)
+            .addComponent(simpleTitleBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(guiHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(textEditorContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -598,6 +593,7 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JPanel parsingResultHeader;
     private javaswingdev.SimpleTitleBar simpleTitleBar1;

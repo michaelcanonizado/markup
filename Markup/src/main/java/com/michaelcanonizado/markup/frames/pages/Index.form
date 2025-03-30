@@ -84,7 +84,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="simpleTitleBar1" pref="1068" max="32767" attributes="0"/>
+              <Component id="simpleTitleBar1" max="32767" attributes="0"/>
               <Component id="guiHeader" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <Component id="textEditorContainer" min="-2" max="-2" attributes="0"/>
@@ -190,13 +190,10 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="textEditorHeader" pref="522" max="32767" attributes="0"/>
                   <Component id="syntaxGuildlineContainer" alignment="1" max="32767" attributes="0"/>
+                  <Component id="parsingResultHeader" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" alignment="1" max="32767" attributes="0"/>
-                          <Component id="parsingResultHeader" alignment="1" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="507" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -399,7 +396,7 @@
                                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="51" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -413,18 +410,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel6" min="-2" pref="252" max="-2" attributes="0"/>
-                                  <EmptySpace pref="192" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="199" max="32767" attributes="0"/>
+                              <Component id="jLabel6" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
@@ -671,20 +663,15 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="consoleHeader" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="console" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="consoleHeader" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="console" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="jScrollPane4" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -731,31 +718,39 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="console">
+            <Container class="javax.swing.JScrollPane" name="jScrollPane4">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="b" green="9" red="9" type="rgb"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="fa" green="fa" red="fa" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="18" style="0"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
                 </Property>
               </Properties>
 
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="528" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="530" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="console">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="b" green="9" red="9" type="rgb"/>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="540" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="540" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                </Container>
+              </SubComponents>
             </Container>
           </SubComponents>
         </Container>
