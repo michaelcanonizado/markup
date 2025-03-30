@@ -15,7 +15,8 @@ public class Markup {
 
     public static void main(String[] args) {
 //        String input = "\\h\\hello\\x\\p1";
-        String input = "\\p1\\h\\p1\\helloHello World! This is Michael XD;";
+        String input = "\\p1\\h\\p1\\helloHello World! This is Michael XD;"
+                + "\n\\h\\helloMy name is mike!;";
 //        String input = "World!;";
         Parser parser = new Parser(input);
         

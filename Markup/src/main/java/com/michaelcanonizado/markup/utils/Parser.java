@@ -85,7 +85,6 @@ public class Parser {
 //        return isValidSyntax && index == input.length();
         result.setStatements(statements);
         if (index == input.length()) {
-            result.setIsValid(true);
             return result;
         }
         result.setErrorIndex(index - 2);
@@ -97,6 +96,7 @@ public class Parser {
         while (index < input.length()) {
             StatementData statement = parseStatement();
             if (statement == null) {
+                result.setIsValid(false);
                 return statements;
             }
             statements.add(statement);
@@ -109,9 +109,25 @@ public class Parser {
         List<String> escapeSequences = new ArrayList<>();
         StringBuilder stringBuilder = new StringBuilder();
         
-        if (parseEscapeSequences(escapeSequences) && parseString(stringBuilder ) && match(';')) {
+        boolean case1 = parseEscapeSequences(escapeSequences);
+        boolean case2 = parseString(stringBuilder);
+        boolean case3 = match(';');
+        
+//        System.out.println(
+//                "esc: "+ case1
+//                + " | str: "+ case2
+//                + " | ';': "+ case3
+//                + " | index: "+ index
+//        );
+        
+        if (case1 && case2 && case3) {
+            setSuccess();
             return new StatementData(escapeSequences, stringBuilder.toString());
         }
+        setError("Something went wrong! "+"esc: "+ case1
+                + " | str: "+ case2
+                + " | ';': "+ case3
+                + " | index: "+ index);
         return null;
     }
     
@@ -203,10 +219,6 @@ public class Parser {
             index++;
             return true;
         }
-        setError(
-            "Expected '" + expectedCharacter + "' but found '" +
-            input.charAt(index) + "'."
-        );
         return false;
     }
     
@@ -215,6 +227,12 @@ public class Parser {
             result.setErrorIndex(index);
             result.setErrorMessage(errorMessage);
         }
+    }
+    private void setSuccess() {
+        result.setIsValid(true);
+        result.setErrorIndex(-1);
+        result.setErrorMessage(null);
+        result.setErrorContext(null);
     }
     
     private void skipWhitespace() {

@@ -46,6 +46,7 @@ public class ParserResult {
     }
 
     public void setIsValid(boolean isValid) {
+        System.out.println("SETTING ISVALID: "+isValid);
         this.isValid = isValid;
     }
 
