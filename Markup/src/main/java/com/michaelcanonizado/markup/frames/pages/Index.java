@@ -4,11 +4,20 @@
  */
 package com.michaelcanonizado.markup.frames.pages;
 
+import com.michaelcanonizado.markup.utils.Parser;
+import com.michaelcanonizado.markup.utils.ParserResult;
+import com.michaelcanonizado.markup.utils.StatementData;
+import javax.swing.BoxLayout;
+import javax.swing.JEditorPane;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+
 /**
  *
  * @author lilac
  */
 public class Index extends javax.swing.JFrame {
+    private String text = null;
 
     /**
      * Creates new form Index
@@ -41,6 +50,7 @@ public class Index extends javax.swing.JFrame {
         textEditor = new javax.swing.JTextArea();
         consoleContainer = new javax.swing.JPanel();
         consoleHeader = new javax.swing.JPanel();
+        console = new javax.swing.JPanel();
 
         jScrollPane1.setViewportView(jTextPane1);
 
@@ -139,11 +149,22 @@ public class Index extends javax.swing.JFrame {
         consoleHeader.setLayout(consoleHeaderLayout);
         consoleHeaderLayout.setHorizontalGroup(
             consoleHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 524, Short.MAX_VALUE)
         );
         consoleHeaderLayout.setVerticalGroup(
             consoleHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 50, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout consoleLayout = new javax.swing.GroupLayout(console);
+        console.setLayout(consoleLayout);
+        consoleLayout.setHorizontalGroup(
+            consoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        consoleLayout.setVerticalGroup(
+            consoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout consoleContainerLayout = new javax.swing.GroupLayout(consoleContainer);
@@ -151,12 +172,14 @@ public class Index extends javax.swing.JFrame {
         consoleContainerLayout.setHorizontalGroup(
             consoleContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(consoleHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(console, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         consoleContainerLayout.setVerticalGroup(
             consoleContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(consoleContainerLayout.createSequentialGroup()
                 .addComponent(consoleHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(console, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -201,8 +224,19 @@ public class Index extends javax.swing.JFrame {
     }//GEN-LAST:event_textEditorBtnActionPerformed
 
     private void textEditorBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textEditorBtnMouseClicked
-        String input = textEditor.getText();
-        System.out.println(input);
+        this.text = textEditor.getText();
+        Parser parser = new Parser(text);
+        ParserResult result = parser.parse();
+        System.out.println(result);
+        for (StatementData statement : result.getStatements()) {
+//            JLabel label = new JLabel("<html><h1 style='color:blue;'>Hello, Swing!</h1></html>");
+            JLabel label = new JLabel(statement.getText());
+            console.setLayout(new BoxLayout(console, BoxLayout.Y_AXIS));
+            console.add(label);
+        }
+        
+        console.revalidate();
+        console.repaint();
     }//GEN-LAST:event_textEditorBtnMouseClicked
 
     /**
@@ -241,6 +275,7 @@ public class Index extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel console;
     private javax.swing.JPanel consoleContainer;
     private javax.swing.JPanel consoleHeader;
     private javax.swing.JPanel header;
