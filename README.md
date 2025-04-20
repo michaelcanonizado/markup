@@ -78,5 +78,3 @@ This is the CFG that defines the syntax of the Markup language:
 2. Open the project in your IDE.
 3. Compile and run the **main Java file** that starts the Swing interface.
 4. Enter your Markup-formatted text, click run, and see the parsed results!
-
-test
